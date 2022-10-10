@@ -1,0 +1,1 @@
+# strace java application
