@@ -9,7 +9,7 @@ public class NIODirectAllocationTest {
     
     public static void main(String[] args) {
         for (int i = 0; i < 100000 ; i++) {
-            ByteBuffer byteBuffer = ByteBuffer.allocate(4);
+            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4);
             byteBuffer.putChar('c');
             byteBuffer.flip();
         }
