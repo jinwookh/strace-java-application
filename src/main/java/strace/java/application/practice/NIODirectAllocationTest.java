@@ -7,7 +7,7 @@ import java.nio.ByteBuffer;
 
 public class NIODirectAllocationTest {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("byteBuffer allocation start..");
         ByteBuffer byteBuffer = ByteBuffer.allocate(4);
         byteBuffer.putChar('c');
@@ -15,6 +15,8 @@ public class NIODirectAllocationTest {
         System.out.println("byteBuffer allocated! " + byteBuffer.getChar() + " done");
 
         System.out.println("byteBuffer direct allocation start..");
+        Thread.sleep(1000);
+
         ByteBuffer directByteBuffer = ByteBuffer.allocateDirect(4);
         directByteBuffer.putChar('e');
         directByteBuffer.flip();
