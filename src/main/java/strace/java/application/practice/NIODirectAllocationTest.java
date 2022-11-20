@@ -9,13 +9,15 @@ public class NIODirectAllocationTest {
     
     public static void main(String[] args) {
         System.out.println("byteBuffer allocation start..");
-        ByteBuffer byteBuffer = ByteBuffer.allocate(10);
+        ByteBuffer byteBuffer = ByteBuffer.allocate(4);
         byteBuffer.putChar('c');
-        System.out.println("byteBuffer allocated!");
+        byteBuffer.flip();
+        System.out.println("byteBuffer allocated! " + byteBuffer.getChar() + " done");
 
         System.out.println("byteBuffer direct allocation start..");
-        ByteBuffer directByteBuffer = ByteBuffer.allocateDirect(10);
-        directByteBuffer.putChar('c');
-        System.out.println("byteBuffer directly allocated!");
+        ByteBuffer directByteBuffer = ByteBuffer.allocateDirect(4);
+        directByteBuffer.putChar('e');
+        directByteBuffer.flip();
+        System.out.println("byteBuffer directly allocated!" + directByteBuffer.getChar());
     }
 }
